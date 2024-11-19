@@ -4,6 +4,7 @@
  * Allows the `Register` class to dynamically use the denominations
  * defined here without hardcoding them directly.
  */
+import java.util.List;
 
 class USDDenominationFactory implements DenominationFactory {
     @Override

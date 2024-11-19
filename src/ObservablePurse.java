@@ -1,59 +1,43 @@
-/**
-*Adding this for the purpose of extended the purse class
- * subclass
- */
-
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
- * Observer Design Pattern
- * Extends the `Purse` class to add observer support.
- * Observers are notified whenever the purse's state changes.
+ * ObservablePurse class that extends Purse and implements the Observable interface.
  */
-class ObservablePurse extends Purse {
-    private List<ChangeObserver> observers = new ArrayList<>();
+public class ObservablePurse extends Purse implements Observable {
+    private final List<ChangeObserver> observers = new ArrayList<>();
 
-    /**
-     * Adds an observer to the list of observers.
-     * @param observer the observer to add
-     */
+    @Override
     public void addObserver(ChangeObserver observer) {
         observers.add(observer);
     }
 
-    /**
-     * Removes an observer from the list of observers.
-     * @param observer the observer to remove
-     */
+    @Override
     public void removeObserver(ChangeObserver observer) {
         observers.remove(observer);
     }
 
     @Override
+    public void notifyObservers() {
+        for (ChangeObserver observer : observers) {
+            observer.notifyChange(this);
+        }
+    }
+
+    @Override
     public void add(Denomination type, int num) {
         super.add(type, num);
-        notifyObservers();
+        notifyObservers();  // Notify observers whenever an addition is made.
     }
 
     @Override
     public double remove(Denomination type, int num) {
         double removedValue = super.remove(type, num);
-        notifyObservers();
+        notifyObservers();  // Notify observers whenever a removal is made.
         return removedValue;
     }
-
-    /**
-     * Notifies all observers of a state change in the purse.
-     */
-    private void notifyObservers()
-    {
-        for (ChangeObserver observer : observers)
-        {
-            observer.notifyChange(this);
-        }
-    }
 }
-
