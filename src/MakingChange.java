@@ -8,8 +8,10 @@ import javax.swing.*;
 
  // Main class that serves as the entry point for the Making Change application.
 
-public class MakingChange {
-    public static void main(String[] args) {
+public class MakingChange
+{
+    public static void main(String[] args)
+    {
         // Initialize the factory and register with denominations dynamically created
         DenominationFactory factory = new USDDenominationFactory();
         Register register = new Register(factory);

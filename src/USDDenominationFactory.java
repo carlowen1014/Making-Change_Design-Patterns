@@ -1,14 +1,20 @@
 /**
+ *  Carl Owen
+ *  Design Pattern Lab
+ *  Register class
  * Factory Method Design Pattern
  * Concrete factory for creating USD denominations.
  * Allows the `Register` class to dynamically use the denominations
  * defined here without hardcoding them directly.
  */
+
 import java.util.List;
 
-class USDDenominationFactory implements DenominationFactory {
+class USDDenominationFactory implements DenominationFactory
+{
     @Override
-    public List<Denomination> createDenominations() {
+    public List<Denomination> createDenominations()
+    {
         return List.of(
                 new Denomination("Hundred Dollar Bill", 100.0, "bill", "hundred.png"),
                 new Denomination("Fifty Dollar Bill", 50.0, "bill", "fifty.png"),

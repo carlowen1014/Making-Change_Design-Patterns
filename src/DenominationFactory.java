@@ -1,5 +1,7 @@
 /**
- * Factory Method Design Pattern
+ * Carl Owen
+ * Design Pattern Lab
+ * Denomination Factory
  * Interface for creating a list of denominations.
  * This allows the creation of denominations to be dynamic and extensible.
  */
